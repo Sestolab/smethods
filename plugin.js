@@ -78,5 +78,13 @@ CKEDITOR.plugins.add('smethods', {
 				this.isEnabled() ? this.disable() : this.enable();
 			}
 		});
+
+		CKEDITOR.tools.extend(CKEDITOR.tools.array, {
+			without: function(array, ...values){
+				return CKEDITOR.tools.array.filter(array, function(value){
+					return !CKEDITOR.tools.search(values, value) && value;
+				});
+			}
+		});
 	}
 });
