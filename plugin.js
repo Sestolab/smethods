@@ -36,6 +36,12 @@ CKEDITOR.plugins.add('smethods', {
 					if (name == this.realName())
 						return true;
 				return false;
+			},
+			findParent: function(selector){
+				return this.getParents(true).find(function(node){
+					if (node.$.matches(selector))
+						return node;
+				});
 			}
 		});
 
