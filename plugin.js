@@ -66,6 +66,12 @@ CKEDITOR.plugins.add('smethods', {
 			}
 		});
 
+		CKEDITOR.tools.extend(CKEDITOR.dialog.prototype, {
+			getCurrentPageId: function(){
+				return this._.currentTabId;
+			}
+		});
+
 		CKEDITOR.tools.extend(CKEDITOR.ui.dialog.uiElement.prototype, {
 			getValues: function(){
 				var values = [];
