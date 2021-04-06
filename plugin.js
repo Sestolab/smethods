@@ -88,6 +88,10 @@ CKEDITOR.plugins.add('smethods', {
 			},
 			toggleState: function(){
 				this.isEnabled() ? this.disable() : this.enable();
+			},
+			isOnCurrentPage: function(){
+				var dialog = this.getDialog();
+				return !!dialog.getContentElement(dialog.getCurrentPageId(), this.id);
 			}
 		});
 
