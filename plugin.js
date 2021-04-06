@@ -116,6 +116,10 @@ CKEDITOR.tools.extend(CKEDITOR.editor.prototype, {
 CKEDITOR.tools.extend(CKEDITOR.ui.prototype, {
 	addMenuButton: function(name, definition){
 		this.add(name, CKEDITOR.UI_MENUBUTTON, definition);
+	},
+	addButtons: function(definition){
+		for (var buttonName in definitions)
+			this.addMenuButton(buttonName, definitions[buttonName]);
 	}
 });
 
