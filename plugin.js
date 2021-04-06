@@ -94,3 +94,12 @@ CKEDITOR.plugins.add('smethods', {
 		});
 	}
 });
+
+
+CKEDITOR.tools.extend(CKEDITOR.editor.prototype, {
+	addCommands: function(definitions){
+		for (var commandName in definitions)
+			this.addCommand(commandName, definitions[commandName]);
+	}
+});
+
