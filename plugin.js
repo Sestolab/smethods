@@ -69,6 +69,9 @@ CKEDITOR.plugins.add('smethods', {
 		CKEDITOR.tools.extend(CKEDITOR.dialog.prototype, {
 			getCurrentPageId: function(){
 				return this._.currentTabId;
+			},
+			getCurrentPageIndex: function(){
+				return this._.currentTabIndex;
 			}
 		});
 
