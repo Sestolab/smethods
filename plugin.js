@@ -45,27 +45,6 @@ CKEDITOR.plugins.add('smethods', {
 			}
 		});
 
-		CKEDITOR.plugins.widget && CKEDITOR.tools.extend(CKEDITOR.plugins.widget.prototype, {
-			rmData: function(key, value){
-				if (this.data[key])
-					if (value === true)
-						this.setData(key, '');
-					else if (value instanceof RegExp)
-						this.setData(key, this.data[key].replace(value, ''));
-				return this;
-			},
-			pushData: function(key, value, remove){
-				if (remove)
-					this.rmData(key, remove);
-				if (value)
-					if (typeof value == 'string')
-						this.setData(key, this.data[key] ? this.data[key].concat(' ', value) : value);
-					else
-						this.setData(key, this.data[key] ? this.data[key].concat(value) : value);
-				return this;
-			}
-		});
-
 		CKEDITOR.tools.extend(CKEDITOR.dialog.prototype, {
 			getCurrentPageId: function(){
 				return this._.currentTabId;
