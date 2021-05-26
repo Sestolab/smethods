@@ -7,8 +7,9 @@ CKEDITOR.plugins.add('smethods', {
 			rmClass: function(remove){
 				remove = remove instanceof RegExp ? this.matchClass(remove) : remove;
 				if (remove)
-					for (var c of remove)
-						this.removeClass(c);
+					for (var i in remove)
+						this.removeClass(remove[i]);
+
 				return this;
 			},
 			toggleClass: function(name, remove){
@@ -32,9 +33,10 @@ CKEDITOR.plugins.add('smethods', {
 				return this.data('cke-real-element-type') || this.getName();
 			},
 			isReal: function(){
-				for (var name of arguments)
-					if (name == this.realName())
+				for (var i in arguments)
+					if (arguments[i] == this.realName())
 						return true;
+
 				return false;
 			},
 			findParent: function(selector){
@@ -55,7 +57,9 @@ CKEDITOR.plugins.add('smethods', {
 			getValues: function(){
 				var values = [];
 				if (this.items)
-					for (var value of this.items){
+					for (var i in this.items){
+						var value = this.items[i];
+
 						value = value[1] ? value[1] : CKEDITOR.tools.isArray(value[0]) ? value[0][0] : value[0];
 						if (value)
 							values.push(value);
